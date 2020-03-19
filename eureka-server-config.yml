@@ -1,0 +1,47 @@
+spring:
+  profiles:
+    active: eureka8000
+---
+server:
+  port: 8000
+eureka:
+  instance:
+    hostname: eureka8000
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://eureka8000:8000/eureka,http://eureka8100:8100/eureka,http://eureka8200:8200/eureka
+spring:
+  profiles: eureka8000
+---
+server:
+  port: 8100
+eureka:
+  instance:
+    hostname: eureka8100
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://eureka8000:8000/eureka,http://eureka8100:8100/eureka,http://eureka8200:8200/eureka
+spring:
+  profiles: eureka8100
+---
+server:
+  port: 8200
+eureka:
+  instance:
+    hostname: eureka8200
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://eureka8000:8000/eureka,http://eureka8100:8100/eureka,http://eureka8200:8200/eureka
+spring:
+  profiles: eureka8200
+---
+#  server:
+#    renewal-percent-threshold: 0.4
+#    renewal-threshold-update-interval-ms: 1000
+
