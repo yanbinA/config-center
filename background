@@ -1,0 +1,49 @@
+---
+server:
+  port: 9000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka8000:8000/eureka/
+  instance:
+      instance-id: background
+spring:
+  profiles: dev
+  application:
+    name: background
+  datasource:
+    hikari:
+      background:
+        jdbc-url: jdbc:mysql://rm-8vb12752q95s0978b3o.mysql.zhangbei.rds.aliyuncs.com/jcmes_background_test?characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+        #data-source-class-name: com.mysql.jdbc.Driver
+        username: ouen_test
+        password: ouen_test@2025
+    type: com.alibaba.druid.pool.DruidDataSource
+mybatis:
+  typeAliasesPackage: com.example.background.model
+  mapperLocations: classpath*:mapper/background/*.xml
+---
+server:
+  port: 9000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka8000:8000/eureka/
+  instance:
+    instance-id: background
+spring:
+  profiles: online
+  application:
+    name: background
+  datasource:
+    hikari:
+      background:
+        jdbc-url: jdbc:mysql://rm-uf6dc79w5tf881n5n6o.mysql.rds.aliyuncs.com/jcmes_production_test?characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+        #data-source-class-name: com.mysql.jdbc.Driver
+        username: ouenidc
+        password: OuenData2018
+    type: com.alibaba.druid.pool.DruidDataSource
+mybatis:
+  typeAliasesPackage: com.example.background.model
+  mapperLocations: classpath*:mapper/background/*.xml
+---
