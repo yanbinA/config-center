@@ -19,6 +19,14 @@ spring:
         username: ouen_test
         password: ouen_test@2025
     type: com.alibaba.druid.pool.DruidDataSource
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0 # 将采样比例设置为 1.0，也就是全部都需要。默认是 0.1
+  zipkin:
+    base-url: http://localhost:9411/ # 指定了 Zipkin 服务器的地址
 mybatis:
   typeAliasesPackage: com.example.background.model
   mapperLocations: classpath*:mapper/background/*.xml
